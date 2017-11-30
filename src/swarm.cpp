@@ -9,3 +9,18 @@ settings_ptr{settings}
         particles.push_back(particle);
     }
 }
+
+void Swarm::updateSwarm(){
+
+    for(auto& particle : particles){
+        particle.updateVelocity();
+        particle.updatePosition();
+        particle.updateFitness();
+    }
+    updateGlobalBest();
+}
+
+void Swarm::updateGlobalBest(){
+
+
+}

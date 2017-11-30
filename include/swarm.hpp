@@ -13,10 +13,13 @@ public:
 
     void updateSwarm();
 
+
  
 
 private:
 
+    void updateGlobalBest();
+    
     std::vector<Particle> particles;
     Settings* settings_ptr;
     vec globalBestPosition;

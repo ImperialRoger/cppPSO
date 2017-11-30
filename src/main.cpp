@@ -9,4 +9,6 @@ int main(){
 
 	Swarm swarm(&settings);
 
+	swarm.updateSwarm();
+
 }

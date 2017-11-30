@@ -15,13 +15,8 @@ private:
 	double fitness;
 	double bestFitness;
 
-	Settings* settings_ptr;
-	Swarm* swarm_ptr;
-
-
-	void updateVelocity();
-	void updatePosition();
-
+	
+	
 	void initPosition();
 	void initVelocity();
 	void initBestPosition();
@@ -29,8 +24,12 @@ private:
 public:
 
 	Particle(Settings* settings, Swarm* swarm);
-	void updateParticle();
+	void updateVelocity();
+	void updatePosition();
+	void updateFitness();
 
+	Settings* settings_ptr;
+	Swarm* swarm_ptr;
 };
 
 #endif

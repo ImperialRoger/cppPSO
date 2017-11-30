@@ -25,3 +25,17 @@ void Particle::initVelocity()
 
 
 }
+
+void Particle::updateFitness()
+{
+    fitness = settings_ptr->objectiveFunction(position);
+}
+
+void Particle::updateVelocity(){
+
+}
+
+void Particle::updatePosition(){
+
+    
+}
