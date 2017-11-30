@@ -11,4 +11,6 @@ int main(){
 
 	swarm.updateSwarm();
 
+	std::cout << swarm.globalBestFitness  << std::endl;
+
 }

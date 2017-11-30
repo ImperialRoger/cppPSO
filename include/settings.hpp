@@ -28,6 +28,7 @@ public:
 	int iterations;
 	int numberParticles;
 
+	// Test Functions
 
 	enum Function{
 		Rastrigin,
@@ -39,7 +40,6 @@ public:
 	};
 
 	void setFunction(int functionChoice);
-
 	std::function<double (vec &x)> objectiveFunction;
 
 private:

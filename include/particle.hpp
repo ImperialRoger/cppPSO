@@ -13,7 +13,7 @@ private:
 	vec velocity;
 	vec bestPosition;
 	double fitness;
-	double bestFitness;
+	
 
 	
 	
@@ -27,6 +27,8 @@ public:
 	void updateVelocity();
 	void updatePosition();
 	void updateFitness();
+
+	double bestFitness;
 
 	Settings* settings_ptr;
 	Swarm* swarm_ptr;

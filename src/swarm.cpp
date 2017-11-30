@@ -22,5 +22,11 @@ void Swarm::updateSwarm(){
 
 void Swarm::updateGlobalBest(){
 
+    std::vector<double> best;
 
+    for(auto& particle : particles){
+        best.push_back(particle.bestFitness);
+    }
+
+    globalBestFitness = *(std::min_element(best.begin(), best.end()));
 }

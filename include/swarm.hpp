@@ -2,6 +2,7 @@
 #define SWARM
 
 #include <vector>
+#include <algorithm>
 #include "settings.hpp"
 #include "particle.hpp"
 
@@ -13,8 +14,7 @@ public:
 
     void updateSwarm();
 
-
- 
+    double globalBestFitness;
 
 private:
 
@@ -23,7 +23,7 @@ private:
     std::vector<Particle> particles;
     Settings* settings_ptr;
     vec globalBestPosition;
-    double globalBestFitness;
+    
 
 };
 
