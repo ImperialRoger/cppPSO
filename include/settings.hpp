@@ -9,17 +9,25 @@
 typedef std::vector<double> vec;
 typedef std::uniform_real_distribution<double> dist;
 
-
 class Settings{
 
 public:
 
+	// Constuctor
 	Settings();
 
+	// Random Number Generation
 	std::mt19937_64 generator;
 	dist positionDist;
 	dist velocityDist;
 	dist updateDist;
+
+	// Simulation constants
+
+	int dimensions;
+	int iterations;
+	int numberParticles;
+
 
 	enum Function{
 		Rastrigin,
@@ -32,17 +40,11 @@ public:
 
 	void setFunction(int functionChoice);
 
-
 	std::function<double (vec &x)> objectiveFunction;
-
-
-
-
-
 
 private:
 	
-
+	void loadSimulationDefaults();
 
 	static double rastrigin(vec &x);
 	static double ackley(vec &x);
@@ -50,6 +52,15 @@ private:
 	static double rosenbrock(vec &x);
 	static double beale(vec &x);
 	static double goldsteinPrice(vec &x);
+
+	void rastriginDefaults();
+	void ackleyDefaults();
+	void sphereDefaults();
+	void rosenbrockDefaults();
+	void bealeDefaults();
+	void goldsteinPriceDefaults();
+
+	void defaultSettings();
 
 
 };

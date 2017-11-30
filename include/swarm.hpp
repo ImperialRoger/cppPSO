@@ -9,12 +9,18 @@ class Swarm{
 
 public:
 
- Swarm(Settings* settings);
+    Swarm(Settings* settings);
+
+    void updateSwarm();
+
+ 
 
 private:
 
     std::vector<Particle> particles;
     Settings* settings_ptr;
+    vec globalBestPosition;
+    double globalBestFitness;
 
 };
 

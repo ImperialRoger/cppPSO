@@ -3,6 +3,8 @@
 
 #include "settings.hpp"
 
+class Swarm;
+
 class Particle{
 
 private:
@@ -13,18 +15,22 @@ private:
 	double fitness;
 	double bestFitness;
 
-	Settings *settings;
+	Settings* settings_ptr;
+	Swarm* swarm_ptr;
+
 
 	void updateVelocity();
 	void updatePosition();
 
+	void initPosition();
+	void initVelocity();
+	void initBestPosition();
+
 public:
 
-	Particle();
+	Particle(Settings* settings, Swarm* swarm);
+	void updateParticle();
 
 };
-
-
-
 
 #endif

@@ -1,4 +1,5 @@
 #include "settings.hpp"
+#include "swarm.hpp"
 
 int main(){
 
@@ -6,7 +7,6 @@ int main(){
 
 	settings.setFunction(settings.Rastrigin);
 
-	vec x{0};
+	Swarm swarm(&settings);
 
-	std::cout << settings.objectiveFunction(x) << std::endl;
 }
