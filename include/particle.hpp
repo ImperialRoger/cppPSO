@@ -2,36 +2,42 @@
 #define PARTICLE
 
 #include "settings.hpp"
-
-class Swarm;
+#include "solution.hpp"
+#include <iterator>
 
 class Particle{
 
 private:
 
-	vec position;
+	
 	vec velocity;
 	vec bestPosition;
-	double fitness;
-	
 
-	
+	double globalBestFitness;
+
+    vec globalBestPositionVector;
+
 	
 	void initPosition();
 	void initVelocity();
 	void initBestPosition();
+	double randomNo();
 
 public:
 
-	Particle(Settings* settings, Swarm* swarm);
+	Particle(Settings* settings, Solution* solution);
 	void updateVelocity();
 	void updatePosition();
 	void updateFitness();
 
 	double bestFitness;
+	double fitness;
+
+	vec position;
 
 	Settings* settings_ptr;
-	Swarm* swarm_ptr;
+	Solution* solution_ptr;
+
 };
 
 #endif

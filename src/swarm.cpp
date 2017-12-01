@@ -1,13 +1,17 @@
 #include "swarm.hpp"
 
-Swarm::Swarm(Settings* settings):
-settings_ptr{settings}
+Swarm::Swarm(Settings* settings, Solution* solution):
+settings_ptr{settings},
+solution_ptr{solution}
 {
     for(int i = 0; i < settings_ptr->numberParticles; ++i)
     {
-        Particle particle(settings_ptr, this);
+        Particle particle(settings_ptr, solution_ptr);
         particles.push_back(particle);
     }
+    solution_ptr->bestFitness = particles[0].fitness;
+    solution_ptr->bestPosition = particles[0].position;
+    updateGlobalBest();
 }
 
 void Swarm::updateSwarm(){
@@ -22,11 +26,19 @@ void Swarm::updateSwarm(){
 
 void Swarm::updateGlobalBest(){
 
-    std::vector<double> best;
+    std::vector<double> tempVec;
 
     for(auto& particle : particles){
-        best.push_back(particle.bestFitness);
+        tempVec.push_back(particle.fitness);
     }
 
-    globalBestFitness = *(std::min_element(best.begin(), best.end()));
+    auto ptr = std::min_element(tempVec.begin(), tempVec.end());
+    if(*ptr < solution_ptr->bestFitness){
+        solution_ptr->bestFitness = *ptr;
+        int index = std::distance(tempVec.begin(), ptr);
+        solution_ptr->bestPosition = particles[index].position;
+    }
+
+
+
 }
