@@ -38,7 +38,7 @@ void Particle::updateVelocity(){
         int index = std::distance(velocity.begin(), v);
         double localTerm = settings_ptr->constant1*randomNo()*(solution_ptr->bestPosition[index] - position[index]);
         
-        int globalTerm = settings_ptr->constant2*randomNo()*
+        double globalTerm = settings_ptr->constant2*randomNo()*
             (solution_ptr->bestPosition[index] - position[index]);
 
         (*v) = *v + localTerm + globalTerm;
@@ -54,5 +54,6 @@ void Particle::updatePosition(){
 
 double Particle::randomNo(){
 
-    return settings_ptr->updateDist(settings_ptr->generator);
+    double val =  settings_ptr->updateDist(settings_ptr->generator);
+    return val;
 }

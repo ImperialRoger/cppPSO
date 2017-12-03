@@ -115,8 +115,8 @@ void Settings::defaultSettings(){
 	dimensions = 2;
 	iterations = 100;
 	numberParticles = 30;
-	constant1 = 1.0;
-	constant2 = 1.0;
+	constant1 = 2.0;
+	constant2 = 2.0;
 
 }
 

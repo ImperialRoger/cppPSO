@@ -9,6 +9,8 @@ struct Solution{
 
     std::vector<double> bestPosition;
 
+    int solutionCount;
+
 };
 
 #endif  // SOLUTION

@@ -9,6 +9,7 @@ solution_ptr{solution}
         Particle particle(settings_ptr, solution_ptr);
         particles.push_back(particle);
     }
+    solution_ptr->solutionCount = 0;
     solution_ptr->bestFitness = particles[0].fitness;
     solution_ptr->bestPosition = particles[0].position;
     updateGlobalBest();
@@ -37,8 +38,15 @@ void Swarm::updateGlobalBest(){
         solution_ptr->bestFitness = *ptr;
         int index = std::distance(tempVec.begin(), ptr);
         solution_ptr->bestPosition = particles[index].position;
+    }else{
+        solution_ptr->solutionCount++;
     }
 
+    if(solution_ptr->solutionCount > 2){
+        settings_ptr->constant1 = settings_ptr->constant1/1.2;
+        settings_ptr->constant2 = settings_ptr->constant2/1.2;
+        solution_ptr->solutionCount = 0;
+        }
 
 
 }
